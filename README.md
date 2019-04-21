@@ -1,16 +1,6 @@
 # PAC-UFG
 Protótipo da Arquitetura de Software do PAC UFG
 
-### 1- Como colaborar com esse projeto?
-
- **Criar issue:** Crie sempre uma issue antes de fazer a modificação para documentar o que está fazendo e a solução encontrada.
-
- **Pull Request:** Após terminar, não envie seu commit ainda. Você pode criar um pull request com as suas sugestões de modificação para que o responsável possa validar.
-
-### 2 - Acompanhar o andamento desse projeto
-    #### 2.1 - [Acompanhe as datas](https://github.com/therealandroid/PAC-UFG/issues)
-    #### 2.2 - [Acompanhe o desenvolvimento](https://github.com/therealandroid/PAC-UFG/projects/1)
-
 # Objetivo
 
 - O objetivo desse projeto é obter uma validação da arquitetura escolhida e da decisão das tecnologias (Spring Boot + TymeLeaf + JPA + MySql).
@@ -19,6 +9,18 @@ Protótipo da Arquitetura de Software do PAC UFG
 
 - O resultado será um protótipo simples de um caso de uso (PACOTE), do qual deverá ser suficiente para executar os aspectos mais importantes
 do negócio e das tecnologias envolvidas. Além disso servirá para mapear as dificuldades iniciais e nível dos envolvidos nesse projeto. 
+
+
+## 1- Como colaborar com esse projeto?
+
+ **Criar issue:** Crie sempre uma issue antes de fazer a modificação para documentar o que está fazendo e a solução encontrada.
+
+ **Pull Request:** Após terminar, não envie seu commit ainda. Você pode criar um pull request com as suas sugestões de modificação para que o responsável possa validar.
+
+### 2 - Acompanhar o andamento desse projeto
+
+#### 2.1 - [Acompanhe as datas](https://github.com/therealandroid/PAC-UFG/issues)
+#### 2.2 - [Acompanhe o desenvolvimento](https://github.com/therealandroid/PAC-UFG/projects/1)
 
 ## CONFIGURAÇÃO DO PROJETO
 
