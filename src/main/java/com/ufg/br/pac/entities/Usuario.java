@@ -1,26 +1,34 @@
 package com.ufg.br.pac.entities;
 
-import org.apache.juli.logging.Log;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Usuario {
 
     @Id
+    @Column(length = 60)
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private String id;
 
+    @Column(length = 120)
     private String nome;
 
-    public Long getId() {
+    @Column(length = 8)
+    private String senha;
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -8,6 +8,7 @@ import java.util.Date;
 
 @Entity
 public class Andamento {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;

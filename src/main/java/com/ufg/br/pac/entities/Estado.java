@@ -1,25 +1,29 @@
 package com.ufg.br.pac.entities;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Estado {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private Integer estadoId;
 
+    @Column(length = 60)
     private String nome;
     private boolean estadoFinal;
-    private String descricao;
-    private String permiteDelegacao;
 
-    public Long getId() {
-        return id;
+    @Column(length = 120)
+    private String descricao;
+
+    public Integer getEstadoId() {
+        return estadoId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEstadoId(Integer estadoId) {
+        this.estadoId = estadoId;
     }
 
     public String getNome() {
@@ -44,13 +48,5 @@ public class Estado {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getPermiteDelegacao() {
-        return permiteDelegacao;
-    }
-
-    public void setPermiteDelegacao(String permiteDelegacao) {
-        this.permiteDelegacao = permiteDelegacao;
     }
 }

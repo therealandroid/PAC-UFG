@@ -1,25 +1,34 @@
 package com.ufg.br.pac.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Transicao {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    private Integer transicaoId;
 
+    @Column(length = 120)
     private String descricao;
-    private String regra;
 
-    public Long getId() {
-        return id;
+    private Boolean regra;
+
+
+    public Integer getTransicaoId() {
+        return transicaoId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTransicaoId(Integer transicaoId) {
+        this.transicaoId = transicaoId;
+    }
+
+    public Boolean getRegra() {
+        return regra;
+    }
+
+    public void setRegra(Boolean regra) {
+        this.regra = regra;
     }
 
     public String getDescricao() {
@@ -30,11 +39,4 @@ public class Transicao {
         this.descricao = descricao;
     }
 
-    public String getRegra() {
-        return regra;
-    }
-
-    public void setRegra(String regra) {
-        this.regra = regra;
-    }
 }
