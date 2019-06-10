@@ -2,13 +2,14 @@ package com.ufg.br.pac.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Projeto {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @Column(length = 60)
     private String nome;
@@ -25,15 +26,30 @@ public class Projeto {
     @Column(length = 120)
     private String stakeholders;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projeto", cascade = CascadeType.ALL)
+    private List<UsuarioProjeto> usuarioProjetos;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projeto", cascade = CascadeType.ALL)
+    private List<Pacote> pacotes;
+
     private Date dataInicio;
+
     private Date dataTermino;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<UsuarioProjeto> getUsuarioProjetos() {
+        return usuarioProjetos;
+    }
+
+    public void setUsuarioProjetos(List<UsuarioProjeto> usuarioProjetos) {
+        this.usuarioProjetos = usuarioProjetos;
     }
 
     public String getNome() {
@@ -90,5 +106,13 @@ public class Projeto {
 
     public void setDataTermino(Date dataTermino) {
         this.dataTermino = dataTermino;
+    }
+
+    public List<Pacote> getPacotes() {
+        return pacotes;
+    }
+
+    public void setPacotes(List<Pacote> pacotes) {
+        this.pacotes = pacotes;
     }
 }

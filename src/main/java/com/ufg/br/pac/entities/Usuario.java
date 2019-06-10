@@ -1,13 +1,13 @@
 package com.ufg.br.pac.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Usuario {
 
     @Id
     @Column(length = 60)
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private String id;
 
     @Column(length = 120)
@@ -15,6 +15,9 @@ public class Usuario {
 
     @Column(length = 8)
     private String senha;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+    private List<UsuarioProjeto> usuarioProjetos;
 
     public String getSenha() {
         return senha;
@@ -38,5 +41,13 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<UsuarioProjeto> getUsuarioProjetos() {
+        return usuarioProjetos;
+    }
+
+    public void setUsuarioProjetos(List<UsuarioProjeto> usuarioProjetos) {
+        this.usuarioProjetos = usuarioProjetos;
     }
 }

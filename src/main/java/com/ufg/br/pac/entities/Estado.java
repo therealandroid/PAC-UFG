@@ -9,7 +9,7 @@ public class Estado {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer estadoId;
+    private Integer id;
 
     @Column(length = 60)
     private String nome;
@@ -18,12 +18,12 @@ public class Estado {
     @Column(length = 120)
     private String descricao;
 
-    public Integer getEstadoId() {
-        return estadoId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEstadoId(Integer estadoId) {
-        this.estadoId = estadoId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

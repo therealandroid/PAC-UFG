@@ -7,20 +7,19 @@ public class Transicao {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer transicaoId;
+    private Integer id;
 
     @Column(length = 120)
     private String descricao;
 
     private Boolean regra;
 
-
-    public Integer getTransicaoId() {
-        return transicaoId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setTransicaoId(Integer transicaoId) {
-        this.transicaoId = transicaoId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getRegra() {

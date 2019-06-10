@@ -7,7 +7,7 @@ import java.util.Date;
 public class Pacote {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(length = 60)
@@ -19,11 +19,15 @@ public class Pacote {
     private boolean abandonado;
 
     private Date dataCriacao;
+
     private Date dataPrevistaRealizacao;
 
     public Integer getId() {
         return id;
     }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Projeto projeto;
 
     public void setId(Integer id) {
         this.id = id;
@@ -67,5 +71,13 @@ public class Pacote {
 
     public void setDataPrevistaRealizacao(Date dataPrevistaRealizacao) {
         this.dataPrevistaRealizacao = dataPrevistaRealizacao;
+    }
+
+    public Projeto getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
     }
 }
