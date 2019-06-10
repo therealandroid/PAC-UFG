@@ -1,13 +1,7 @@
 package com.ufg.br.pac;
 
-import com.ufg.br.pac.entities.Pacote;
-import com.ufg.br.pac.entities.Projeto;
-import com.ufg.br.pac.entities.Usuario;
-import com.ufg.br.pac.entities.UsuarioProjeto;
-import com.ufg.br.pac.repository.PacoteRepository;
-import com.ufg.br.pac.repository.ProjetoRepository;
-import com.ufg.br.pac.repository.UsuarioProjetoRepository;
-import com.ufg.br.pac.repository.UsuarioRepository;
+import com.ufg.br.pac.entities.*;
+import com.ufg.br.pac.repository.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +24,9 @@ public class TestProjetoPacote {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    @Autowired
+    AndamentoRepository andamentoRepository;
 
     @Autowired
     UsuarioProjetoRepository usuarioProjetoRepository;
@@ -77,6 +74,15 @@ public class TestProjetoPacote {
         pacote.setDataPrevistaRealizacao(new Date());
         pacote.setDescricao("Projeto de test");
         pacote.setProjeto(referenciaProjeto);
+
+        Andamento andamento = new Andamento();
+        andamento.setDataModificacao(new Date());
+        andamento.setDescricao("Pacote em andamento");
+        andamento.setDataConclusao(new Date());
+
+        andamentoRepository.save(andamento);
+
+        pacote.setAndamento(andamento);
 
         Pacote pacoteRerence = pacoteRepository.save(pacote);
 

@@ -27,6 +27,9 @@ public class Pacote {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+    private Andamento andamento;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Projeto projeto;
 
     public void setId(Integer id) {
@@ -79,5 +82,13 @@ public class Pacote {
 
     public void setProjeto(Projeto projeto) {
         this.projeto = projeto;
+    }
+
+    public Andamento getAndamento() {
+        return andamento;
+    }
+
+    public void setAndamento(Andamento andamento) {
+        this.andamento = andamento;
     }
 }

@@ -1,21 +1,22 @@
 package com.ufg.br.pac.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Andamento {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date dataModificacao;
     private Date dataConclusao;
     private String descricao;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "andamento", cascade = CascadeType.ALL)
+    private List<Pacote> pacotes;
 
     public Long getId() {
         return id;
@@ -47,5 +48,13 @@ public class Andamento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<Pacote> getPacotes() {
+        return pacotes;
+    }
+
+    public void setPacotes(List<Pacote> pacotes) {
+        this.pacotes = pacotes;
     }
 }
