@@ -1,7 +1,9 @@
 package com.ufg.br.pac.controllers;
 
+import com.ufg.br.pac.entities.Andamento;
 import com.ufg.br.pac.entities.Pacote;
-import com.ufg.br.pac.repository.PacoteRepository;
+import com.ufg.br.pac.entities.Projeto;
+import com.ufg.br.pac.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +19,36 @@ public class PacoteController {
     @Autowired
     private PacoteRepository pacoteRepository;
 
-    @GetMapping("/create")
-    public String create(Model model) {
+    @Autowired
+    ProjetoRepository projetoRepository;
+
+    @Autowired
+    UsuarioRepository usuarioRepository;
+
+    @Autowired
+    AndamentoRepository andamentoRepository;
+
+
+    /**
+     * A1 - Criar pacote
+     *
+     * @param model
+     * @param projeto
+     */
+    @GetMapping("/pacote/criar")
+    public String create(Model model, Projeto projeto, Andamento andamento) {
         Pacote pacote = new Pacote();
+        pacote.setProjeto(projeto);      //Projeto já precisa estar criado
+        pacote.setAndamento(andamento);
+
+        andamentoRepository.save(andamento); //cria um novo andamento em relação ao pacote
+        Pacote reference = pacoteRepository.save(pacote);
+
         model.addAttribute("pacote", pacote);
         model.addAttribute("pacotes", pacoteRepository.findAll());
-        return "criar_pacote";
+        model.addAttribute("retorno", "Criação de pacote " + reference.getNome() + " " + reference.getDescricao() + "realizada com sucesso!");
+
+        return "criar_pacote";  //Redireciona para a pagina
     }
 
     @PostMapping("/create")
